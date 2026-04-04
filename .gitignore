@@ -1,0 +1,36 @@
+# Environment
+.env
+.env.local
+
+# Data (raw CSVs and compiled DB — too large and not public data)
+data/raw/
+data/*.duckdb
+data/provenance.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.uv/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Node (if ever added)
+node_modules/
+.next/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
