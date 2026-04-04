@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "execute_sql",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 backend/hooks/inject_schema_digest.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "render_chart",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 backend/hooks/save_provenance.py"
+          }
+        ]
+      }
+    ]
+  }
+}
