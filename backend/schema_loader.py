@@ -58,11 +58,14 @@ def build_schema_digest() -> str:
             lines.append(f"  - {col_name} ({col_type}): {col_desc}")
         lines.append("")
 
-    joins = registry.get("joins", [])
+    joins = registry.get("allowed_joins", [])
     if joins:
         lines.append("## Allowed Joins")
         for join in joins:
-            lines.append(f"  - {join}")
+            from_table = join.get("from_table", "")
+            to_table = join.get("to_table", "")
+            on_clause = join.get("on", "")
+            lines.append(f"  - {from_table} → {to_table} ON {on_clause}")
         lines.append("")
 
     _schema_digest = "\n".join(lines)
