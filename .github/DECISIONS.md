@@ -72,8 +72,22 @@ Locked decisions for this project. Do not reverse without updating this file.
 
 ---
 
-## 2026-04-04 — Dataset: CMS Hospital Compare
+## 2026-04-04 — Dataset: WHO Global Health Observatory
 
-**Decision**: Use CMS Hospital Compare public data (data.cms.gov) as the primary dataset.
+**Decision**: Use WHO GHO public API (`https://ghoapi.azureedge.net/api/`) as the primary dataset. Six indicators across five countries (RWA, KEN, UGA, ETH, TZA).
 
-**Why**: Public (no PHI, no licensing issues). Healthcare-relevant for the CXO audience. Covers meaningful executive metrics: quality ratings, readmissions, patient satisfaction, complications. Structured, joinable CSVs with a clear schema.
+**Why**: Public (no PHI, no licensing). Maps directly to Kasha's core markets in East Africa. Covers meaningful CXO metrics: contraceptive prevalence, maternal mortality, antenatal care, skilled birth attendance, under-5 mortality, HIV prevalence. REST API delivers fresh data without CSV management.
+
+**Updated**: 2026-04-05 — migrated from CMS Hospital Compare to WHO GHO to match Kasha's market geography.
+
+---
+
+## 2026-04-05 — Integration contracts locked before parallel work
+
+**Decision**: Three integration contracts are locked in `.github/INTEGRATION_CONTRACTS.md` and must not change without agreement from all affected workstreams.
+
+1. **GET /charts response shape** — `backend/main.py` → `dashboard/api_client.py`
+2. **schema_registry.json format** — `data/load_who.py` → `backend/schema_loader.py`
+3. **The 6 static chart IDs** — `backend/static_charts.py` ↔ `dashboard/components/chart_card.py`
+
+**Why**: Three people working in parallel on separate machines with no shared live context. Contracts prevent silent integration failures at merge time.
