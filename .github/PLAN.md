@@ -4,7 +4,7 @@ Last updated: 2026-04-05
 
 ## Current objective
 Phase 3 — Wire up real Claude API integration (intent classifier, tool-calling loop, handlers).
-After that: run data pipeline to populate DuckDB, then smoke-test full stack end-to-end.
+Before starting Phase 3: run `make load` to populate DuckDB, then `make test` (103 tests) to confirm baseline is green.
 
 ## Checklist
 
@@ -31,11 +31,12 @@ After that: run data pipeline to populate DuckDB, then smoke-test full stack end
 
 ### Phase 1 — Foundation
 - [x] Write `data/load_who.py` — calls WHO GHO API for 6 indicators, 5 countries
-- [ ] **NEXT**: Run ingestion (`python data/load_who.py`) — verify row counts and NULL rates
+- [ ] **NEXT**: Run ingestion (`make load`) — verify row counts and NULL rates per indicator
 - [x] `data/schema_registry.json` — full table/column/join definitions
 - [x] `backend/pyproject.toml`
 - [x] `requirements.txt`
-- [x] Directory skeleton (`backend/`, `dashboard/`, `data/`, `.streamlit/`)
+- [x] `Makefile` — `make load/backend/dashboard/test/test-ui`
+- [x] Directory skeleton (`backend/`, `dashboard/`, `data/`, `.streamlit/`, `tests/`)
 
 ### Phase 2 — Backend Core
 - [x] `backend/config.py` — Pydantic settings
@@ -64,10 +65,12 @@ After that: run data pipeline to populate DuckDB, then smoke-test full stack end
 - [x] `dashboard/components/chart_card.py` — Plotly chart renderer, warm colors for "lower=better"
 - [x] `dashboard/components/chat_panel.py` — chat UI with session state
 - [x] `dashboard/app.py` — main Streamlit app, 2×3 chart grid + chat panel
-- [ ] End-to-end smoke test: run backend + dashboard with real DuckDB data
+- [ ] End-to-end smoke test: `make load` → `make backend` → `make dashboard` → verify all 6 charts render with real data
 
 ### Phase 5 — Polish + Demo Prep
 - [x] `data/benchmark_questions.json` — 10 test questions (3 intent types) — expand to 20 after Phase 3
+- [x] `tests/` — 103 pytest tests (sql_validator, static_charts, API routes, schema_registry)
+- [x] `tests/dashboard/test_ui.py` — Playwright UI tests (6 charts, ask buttons, chat panel)
 - [ ] Run all benchmark questions against live Claude API, fix failures
 - [ ] Error states: loading spinners, rejection messages, API errors
 - [ ] Prepare 5-minute demo script
