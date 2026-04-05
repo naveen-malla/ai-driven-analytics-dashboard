@@ -49,6 +49,8 @@ Simulation: 3 isolated agents (Pathey/data, Naveen/backend, Marco/dashboard) wor
 |---|---|---|---|
 | `backend/schema_loader.py` vs `data/schema_registry.json` | Naveen assumed the join array key would be `"joins"` | Pathey used `"allowed_joins"` to match the integration contract literally | LLM schema digest silently omits join info — no crash, but AI generates lower-quality SQL without join guidance |
 | `backend/config.py` DB_PATH vs `data/load_who.py` | Backend assumes the server is always run from repo root (`"data/who_health.duckdb"` is a relative path resolved at runtime) | `load_who.py` uses `os.path.dirname(__file__)` to write the DB — always an absolute path | If `uvicorn` is ever run from a directory other than repo root (e.g., `cd backend && uvicorn main:app`), the backend cannot find the database. This is a latent CWD dependency, not caught by any test or error at write time. |
+| `backend/config.py` vs runtime environment | `ANTHROPIC_API_KEY` was declared as a required field with no default. Pydantic validates this at import time. | Key is only needed for Phase 3 chat — `GET /charts` never calls the Claude API | Backend crashes at startup with a Pydantic validation error if `.env` is missing or the key is absent. Fixed by defaulting to `""`. On hackathon day, distribute `.env` files before anyone boots the backend. |
+| `dashboard/app.py` import paths vs Python path | All dashboard imports use `from dashboard.xxx import ...` — requires `dashboard` to be a package on `sys.path` | Running `streamlit run dashboard/app.py` directly does not add repo root to `sys.path` | `ModuleNotFoundError: No module named 'dashboard'` on every cold start. Fixed by always prefixing with `PYTHONPATH=.`. Baked into Makefile — use `make backend` and `make dashboard`, never bare `uvicorn`/`streamlit` commands. |
 
 ---
 
@@ -84,7 +86,7 @@ Ordered by risk (most dangerous first):
 
 4. **Column aliases produced by SQL must be written into the contract, not inferred** — The backend SQL uses `c.country_name` and `cd.value` and the dashboard reads them via `x_key`/`y_key`. This worked because both sides happened to use the same names. In a real hackathon with different people, explicitly write the expected `x_key` and `y_key` values into Contract 1.
 
-5. **CWD startup convention for every process** — Both `backend/config.py` (relative DB path) and `data/load_who.py` (dirname-of-file absolute path) depend implicitly on the caller running from repo root. Write a single startup section in `HACKATHON_SETUP.md` that says "all processes must be started from repo root" and have every team member read it before starting work.
+5. **CWD startup convention for every process** — Both `backend/config.py` (relative DB path) and `data/load_who.py` (dirname-of-file absolute path) depend implicitly on the caller running from repo root. Always use `make backend` / `make dashboard` — never bare `uvicorn` or `streamlit` commands, as these don't set `PYTHONPATH=.` and don't guarantee CWD.
 
 6. **Schema registry file must be committed (or pre-populated) before backend coding starts** — `backend/schema_loader.py` raises `FileNotFoundError` at startup if the file is missing. On hackathon day, if Pathey is still building the ingestion pipeline when Naveen tries to start the backend, nothing will boot. Pre-agree that a stub `schema_registry.json` is committed to the repo before the parallel coding sprint begins.
 
@@ -108,11 +110,13 @@ Based on this simulation, the safest order to unblock everyone:
 
 - [ ] `data/schema_registry.json` committed to repo before parallel sprint begins
 - [ ] All JSON key names verified match between producer and consumer (especially `"allowed_joins"` vs any assumed alias)
-- [ ] Startup convention documented: all processes started from repo root
+- [ ] Everyone uses `make backend` / `make dashboard` — never bare `uvicorn` / `streamlit` (PYTHONPATH + CWD)
+- [ ] `.env` file with `ANTHROPIC_API_KEY` distributed to Naveen's machine before backend starts
 - [ ] `INTEGRATION_CONTRACTS.md` updated with exact SQL column aliases for `x_key` and `y_key` per chart
 - [ ] Chart types supported by dashboard listed explicitly in the contract
-- [ ] Backend `GET /charts` smoke-tested before Marco starts live API calls
+- [ ] `make test` passing on every machine before parallel sprint begins (103 tests, <1s)
+- [ ] Backend `GET /charts` smoke-tested (`curl http://localhost:8000/charts`) before Marco starts live API calls
 - [ ] Chat endpoint stub status agreed — everyone knows it returns a placeholder until Phase 3
-- [ ] `.env` file (with `ANTHROPIC_API_KEY`) distributed to all team members or injected into environment before backend starts
-- [ ] DuckDB file created by running `python data/load_who.py` from repo root, confirmed before demo
+- [ ] DuckDB file created by running `make load` from repo root, confirmed before demo
+- [ ] `make test-ui` passing after integration merge (Playwright confirms 6 charts render)
 - [ ] Each person confirms: "I have read `INTEGRATION_CONTRACTS.md` and my code matches it"

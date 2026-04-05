@@ -63,7 +63,11 @@ ORDER BY d.year DESC LIMIT 10;
 
 ## FastAPI Notes
 
-*(Populate during Phase 2)*
+### Startup requirements (confirmed 2026-04-05)
+- Must run from repo root with `PYTHONPATH=.` — use `make backend`, not bare `uvicorn`
+- `ANTHROPIC_API_KEY` is optional at startup (defaults to `""`); only required when Phase 3 chat handler is live
+- Database file `data/who_health.duckdb` must exist before first request to `GET /charts`; backend raises `FileNotFoundError` with a clear message if missing
+- `data/schema_registry.json` must exist before `build_schema_digest()` is called (Phase 3); stub file is already committed so startup doesn't fail
 
 ---
 
@@ -85,12 +89,14 @@ call Claude → if stop_reason == "tool_use" → extract tool input → validate
 
 ## Streamlit Notes
 
-*(Populate during Phase 4)*
+### Startup requirements (confirmed 2026-04-05)
+- Must run with `PYTHONPATH=.` — use `make dashboard`, not bare `streamlit run`
+- Running `streamlit run dashboard/app.py` without `PYTHONPATH=.` raises `ModuleNotFoundError: No module named 'dashboard'`
+- Backend must be running on `:8000` for charts to load; app shows a warning instead of crashing when backend is absent
 
 ### Session state keys used
 - `st.session_state.selected_chart_id` — currently selected chart for follow-up
 - `st.session_state.chat_history` — list of {role, content, chart?} dicts
-- `st.session_state.chat_mode` — "chart_followup" | "new_question"
 
 ---
 
