@@ -1,13 +1,13 @@
-# AI-Driven Healthcare Analytics Dashboard
+# Health Insights Dashboard
 
-A CXO-facing healthcare analytics dashboard with a governed AI chat copilot, built using the full Claude ecosystem.
+A CXO-facing health analytics dashboard with a governed AI chat copilot, built on WHO Global Health Observatory data.
 
 ## What it does
 
-- **Static dashboard**: 6 executive charts derived from CMS Hospital Compare public data
-- **Chart follow-up**: ask the AI about any chart — it explains or modifies it using the chart's SQL and data provenance
-- **New analysis**: ask a new question; the AI checks if it can be answered from the available schema, generates SQL, validates it, runs it, and renders a chart
-- **Rejection**: questions outside the available data scope are rejected with a clear reason
+- **Static dashboard**: 6 executive charts covering reproductive and maternal health across Rwanda, Kenya, Uganda, Ethiopia, and Tanzania
+- **Chart follow-up**: click any chart and ask the AI about it — it explains the metric using the chart's SQL and data provenance
+- **New analysis**: ask a freeform question; the AI checks schema, generates SQL, validates it, executes it, and renders a chart
+- **Rejection**: out-of-scope questions (cost data, individual records, forecasts) are rejected with a clear reason
 
 ## Tech stack
 
@@ -15,50 +15,55 @@ A CXO-facing healthcare analytics dashboard with a governed AI chat copilot, bui
 |-------|-----------|
 | Dashboard UI | Streamlit + Plotly |
 | Backend API | FastAPI + Python 3.12 |
-| Database | DuckDB (read-only, CMS CSV data) |
+| Database | DuckDB (read-only, WHO GHO data) |
 | AI runtime | Claude API (`claude-sonnet-4-6`) |
-| Dev tooling | Claude Code (subscription) |
 
 ## Dataset
 
-CMS Hospital Compare public data — fully public, no PHI.
+WHO Global Health Observatory — 6 indicators across 5 East African countries.
 
-- ~5,000 hospitals across the US
-- Metrics: overall quality ratings, readmission rates, patient satisfaction (HCAHPS), complications, timely care
-- Source: [data.cms.gov/provider-data/topics/hospitals](https://data.cms.gov/provider-data/topics/hospitals)
+| Indicator | WHO Code |
+|-----------|----------|
+| Contraceptive prevalence | FP_CXUS_W_CURR |
+| Maternal mortality ratio | MDG_0000000025 |
+| Antenatal care coverage | MDG_0000000031 |
+| Skilled birth attendance | MDG_0000000032 |
+| Under-5 mortality rate | MDG_0000000001 |
+| HIV prevalence | HIV_0000000026 |
+
+Countries: Rwanda (RWA), Kenya (KEN), Uganda (UGA), Ethiopia (ETH), Tanzania (TZA)
 
 ## Setup
 
 ### Prerequisites
 - Python 3.12+
-- [uv](https://github.com/astral-sh/uv) (recommended) or pip
 - Anthropic API key
 
 ### 1. Clone and install
 ```bash
 git clone https://github.com/naveen-malla/ai-driven-analytics-dashboard
 cd ai-driven-analytics-dashboard
-uv venv && source .venv/bin/activate
-uv pip install -r backend/requirements.txt
-uv pip install -r dashboard/requirements.txt
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
 ### 2. Configure environment
 ```bash
-cp .env.example .env
-# Edit .env and add your ANTHROPIC_API_KEY
+# Create a .env file in the repo root with:
+ANTHROPIC_API_KEY=your_key_here
 ```
 
-### 3. Download and load data
+### 3. Load data (run once)
 ```bash
-# Download CMS CSVs (see data/README.md for download links)
-python data/load_cms.py
+python data/load_who.py
 ```
+
+This calls the WHO GHO API and populates `data/who_health.duckdb`. Takes ~30 seconds.
 
 ### 4. Run the app
 ```bash
 # Terminal 1 — Backend
-uvicorn backend.main:app --reload --port 8000
+uvicorn backend.main:app --reload
 
 # Terminal 2 — Dashboard
 streamlit run dashboard/app.py
@@ -66,38 +71,34 @@ streamlit run dashboard/app.py
 
 Open [http://localhost:8501](http://localhost:8501)
 
-## Claude ecosystem features used
-
-| Feature | Location | Purpose |
-|---------|----------|---------|
-| Project memory | `CLAUDE.md` | Dataset schema, metric definitions, coding rules |
-| Subagents | `.claude/agents/` | `data-analyst`, `sql-validator` |
-| Skills | `.claude/skills/` | `/explain-chart`, `/new-chart`, `/schema-check`, `/cxo-summary` |
-| Hooks | `.claude/settings.json` | PreToolUse: validate SQL; PostToolUse: save provenance |
-| Tool calling | `backend/chat_orchestrator.py` | `execute_sql`, `render_chart` tools |
-| Structured outputs | `backend/intent_classifier.py` | Pydantic `IntentResult` classification |
-| Prompt caching | `backend/schema_loader.py` | Schema digest cached across requests |
-| Streaming | `backend/handlers/new_analysis.py` | Long analysis streamed to UI |
-
 ## Project structure
 
 ```
 .
-├── CLAUDE.md               ← Project memory (Claude Code reads this)
-├── .claude/                ← Agents, skills, hooks config
-├── backend/                ← FastAPI app + Claude API integration
-├── dashboard/              ← Streamlit UI
-├── data/                   ← Schema registry, provenance, load script
-└── .github/                ← PLAN.md, DECISIONS.md, NOTES.md
+├── CLAUDE.md                   ← Project memory (Claude Code reads this)
+├── requirements.txt
+├── .env                        ← Not committed — add ANTHROPIC_API_KEY here
+├── .streamlit/config.toml      ← Streamlit theme
+├── .claude/                    ← Agents, skills, hooks config
+├── backend/                    ← FastAPI app + Claude API integration
+│   ├── main.py                 ← Routes: GET /charts, GET /charts/{id}, POST /chat
+│   ├── static_charts.py        ← 6 pre-built chart definitions with WHO SQL
+│   ├── sql_validator.py        ← 5-check SQL security layer
+│   ├── database.py             ← DuckDB read-only connection
+│   ├── schema_loader.py        ← Builds LLM system prompt from schema registry
+│   ├── intent_classifier.py    ← Claude structured output → IntentResult
+│   └── chat_orchestrator.py    ← Agentic tool-calling loop
+├── dashboard/                  ← Streamlit UI
+│   ├── app.py                  ← Main app: 2×3 chart grid + chat panel
+│   ├── api_client.py           ← Typed httpx calls to FastAPI
+│   ├── theme.py                ← Color/size design tokens
+│   └── components/             ← chart_card.py, chat_panel.py
+└── data/
+    ├── load_who.py             ← WHO GHO API ingestion script (run once)
+    ├── schema_registry.json    ← Table/column definitions for LLM context
+    ├── benchmark_questions.json← Test questions for AI validation
+    └── who_health.duckdb       ← Generated by load_who.py (git-ignored)
 ```
-
-## Demo script (5 minutes)
-
-1. Show the static dashboard — 6 charts, explain the dataset context
-2. Click "Ask about this chart" on the star rating distribution → ask "What does a 3-star rating mean?"
-3. Ask a new question: "Which states have the highest readmission rates for heart failure?"
-4. Show a rejection: "What is the average cost per hospital bed?"
-5. Show the generated chart with its SQL provenance
 
 ## Architecture decisions
 
