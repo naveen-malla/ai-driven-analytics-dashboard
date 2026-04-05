@@ -1,0 +1,28 @@
+# ── Streamlit Theme Configuration ─────────────────────────────────────────────
+# Colors come from the ui-ux-pro-max design system, Analytics Dashboard palette.
+# Edit this file to change the visual theme across the entire dashboard.
+
+[theme]
+
+# Deep blue — used for buttons, links, selected states, and interactive highlights.
+# Design system source: Analytics Dashboard primary color.
+primaryColor = "#1E40AF"
+
+# Near-white slate — the main page background. Easier on the eyes than pure
+# white for sessions where the CXO may be looking at data for several minutes.
+backgroundColor = "#F8FAFC"
+
+# Light blue-tinted — used for the sidebar and card backgrounds.
+# Visually separates the sidebar navigation from the chart area without needing
+# a hard border.
+secondaryBackgroundColor = "#EFF6FF"
+
+# Dark navy — the default text color for all headings and body text.
+# Passes WCAG AA contrast ratio (>4.5:1) against both background colors above.
+textColor = "#1E3A8A"
+
+# Inter is the "Minimal Swiss" typeface recommended by the design system for
+# dashboards and admin panels. Single family, weight variations only.
+# Streamlit maps "sans serif" to the system's best sans-serif stack, which
+# includes Inter when available.
+font = "sans serif"
