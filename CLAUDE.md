@@ -107,10 +107,69 @@ backend/database.py           ← DuckDB read-only
 - Anything referencing specific patient or individual records
 - Questions entirely off-topic from public health metrics
 
+## Running the app
+
+Always use `PYTHONPATH=.` from repo root so `backend` and `dashboard` are importable:
+```bash
+make load       # populate WHO database (run once)
+make backend    # FastAPI on :8000
+make dashboard  # Streamlit on :8501
+```
+
+## Testing rules (enforced for all code changes)
+
+These apply to Naveen, Pathey, Marco, and any AI agent working in this repo.
+
+### The rule
+**No feature is complete until its tests pass.** Writing code and declaring it done without running tests is not acceptable. Agents must run tests after writing code and loop until green before committing.
+
+### Test layout
+```
+tests/
+├── conftest.py                  # shared fixtures: in-memory test DuckDB, mock data
+├── backend/
+│   ├── test_sql_validator.py    # all 5 validation checks + edge cases
+│   ├── test_static_charts.py    # SQL structure, chart IDs, required fields
+│   ├── test_api.py              # FastAPI routes via TestClient
+│   ├── test_schema_loader.py    # schema registry parsing
+│   └── test_database.py        # execute_query, missing-DB error
+├── data/
+│   └── test_schema_registry.py # JSON structure matches integration contracts
+└── dashboard/
+    └── test_ui.py              # Playwright: page loads, 6 charts render, chat present
+```
+
+### Backend + data tests (pytest)
+- Run: `PYTHONPATH=. pytest tests/backend tests/data -v`
+- Use in-memory DuckDB with fixture data — never depend on the real `who_health.duckdb`
+- Every new backend function gets at least one test before the feature is committed
+- Tests must pass before any `git commit` on `backend/` or `data/` files
+
+### Dashboard tests (Playwright)
+- Run: `PYTHONPATH=. pytest tests/dashboard -v` (requires both servers running)
+- Marco's UI changes are not complete until Playwright confirms: page loads, all 6 chart cards render, "Ask about this chart" button exists on each, chat panel accepts input
+- Every new UI component or layout change needs a corresponding Playwright check
+
+### Agent workflow for code changes
+1. Write the code
+2. Write the test for it
+3. Run the test: `PYTHONPATH=. pytest <test file> -v`
+4. If it fails — fix the code, not the test (unless the test itself is wrong)
+5. Loop until green
+6. Only then commit
+
+### Hackathon day
+- Same rules apply under time pressure
+- Pathey: run `pytest tests/data` after producing `schema_registry.json`
+- Naveen: run `pytest tests/backend` after each backend module
+- Marco: run Playwright after each UI component — the test tells him it works before he calls it done
+- Integration tests run after each workstream merge
+
 ## File locations
 - Backend source: `backend/`
 - Dashboard source: `dashboard/`
 - Data files: `data/`
+- Tests: `tests/`
 - Claude ecosystem: `.claude/` (agents, skills, settings)
 - Active plan: `.github/PLAN.md`
 - Architecture decisions: `.github/DECISIONS.md`

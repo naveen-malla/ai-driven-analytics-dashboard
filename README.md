@@ -55,19 +55,18 @@ ANTHROPIC_API_KEY=your_key_here
 
 ### 3. Load data (run once)
 ```bash
-python data/load_who.py
+make load
 ```
 
 This calls the WHO GHO API and populates `data/who_health.duckdb`. Takes ~30 seconds.
 
 ### 4. Run the app
 ```bash
-# Terminal 1 — Backend
-uvicorn backend.main:app --reload
-
-# Terminal 2 — Dashboard
-streamlit run dashboard/app.py
+make backend    # Terminal 1 — FastAPI backend on :8000
+make dashboard  # Terminal 2 — Streamlit dashboard on :8501
 ```
+
+> **Why `make`?** Both processes need `PYTHONPATH=.` so Python can find the `backend` and `dashboard` packages. The Makefile sets this automatically. You can also run manually: `PYTHONPATH=. uvicorn backend.main:app --reload`
 
 Open [http://localhost:8501](http://localhost:8501)
 
