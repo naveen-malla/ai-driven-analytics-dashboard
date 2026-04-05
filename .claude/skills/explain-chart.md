@@ -11,7 +11,7 @@ You have been given the provenance of a specific dashboard chart:
 
 ## Your task
 
-Write a 3–5 sentence explanation suitable for a C-suite hospital executive (CEO, CFO, CMO, COO).
+Write a 3–5 sentence explanation suitable for a health-sector decision-maker (country health director, NGO programme lead, regional health coordinator, or health-tech CXO).
 
 ## Structure your response as:
 
@@ -29,11 +29,11 @@ Write a 3–5 sentence explanation suitable for a C-suite hospital executive (CE
 
 - Plain English — no SQL jargon, no mention of table names or column names
 - Data-driven — always reference at least one specific number from the data
-- Honest — if a metric is "Not Available" for many hospitals, say so rather than skipping it
+- Honest — if data is missing or NULL for a country, say so rather than skipping it
 - Concise — 3–5 sentences maximum, no bullet points
 
 ## Example
 
-**Hospital Overall Rating Distribution**
+**Contraceptive Prevalence Rate by Country**
 
-This chart shows how CMS assigns each hospital a quality star rating from 1 (lowest) to 5 (highest), based on a composite of mortality, safety, readmission, patient experience, and timely care measures. Nationally, the largest group of hospitals — about 1,200 — falls at the 3-star level, with only 450 hospitals achieving a top 5-star rating. Fewer than 300 hospitals hold a 1-star rating, suggesting most facilities meet at least a baseline national standard. Hospitals below 3 stars may want to investigate their weakest contributing measures to identify targeted improvement opportunities.
+This chart shows the percentage of women aged 15–49 currently using any contraceptive method (WHO indicator FP_CXUS_W_CURR), a key measure of reproductive health access across the region. Rwanda leads at approximately 64%, while Ethiopia sits at 41% — a 23-percentage-point gap that reflects significant variation in healthcare infrastructure and access across Kasha's core markets. Lower prevalence indicates higher unmet need for reproductive health products. Regions below 50% warrant targeted distribution investment to close the access gap.

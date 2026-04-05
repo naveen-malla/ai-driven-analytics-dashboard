@@ -42,7 +42,7 @@ Read `backend/handlers/reject.py` and `backend/intent_classifier.py`. Confirm:
 Trace these 3 questions through the classifier — all must route to `reject`:
 1. "What is the average cost per hospital bed?"
 2. "How many patients were admitted last year?"
-3. "Why did readmission rates go up?"
+3. "Why did maternal mortality rates go up?"
 
 FAIL for any question that would reach `new_analysis` or `explain_chart`.
 

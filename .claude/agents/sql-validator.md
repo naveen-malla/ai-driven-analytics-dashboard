@@ -1,6 +1,6 @@
 ---
 name: sql-validator
-description: Validates SQL safety before execution against the CMS DuckDB database. Use before executing any AI-generated SQL. Checks for read-only operations, known tables/columns, LIMIT present, no injection patterns. Returns {valid, fixed_sql, reason}.
+description: Validates SQL safety before execution against the DuckDB database. Use before executing any AI-generated SQL. Checks for read-only operations, known tables/columns, LIMIT present, no injection patterns. Returns {valid, fixed_sql, reason}.
 tools: Read
 ---
 
@@ -20,7 +20,7 @@ Reject if it contains: INSERT, UPDATE, DELETE, CREATE, DROP, TRUNCATE, COPY, ALT
 No semicolons anywhere in the query body. A semicolon indicates a multi-statement or injection attempt.
 
 **Check 3 — Known tables only**
-Read `data/schema_registry.json`. Extract all table names referenced after FROM and JOIN keywords. Every table name must exist in the schema registry's `tables` object. Unknown tables are a sign of injection or hallucination.
+Read `data/schema_registry.json`. Extract all table names referenced after FROM and JOIN keywords. Every table name must exist in the schema registry's `tables` object. Known tables are: `countries`, `indicators`, `country_data`. Unknown tables are a sign of injection or hallucination.
 
 **Check 4 — LIMIT present**
 A LIMIT clause must be present. The value must be an integer <= 500.

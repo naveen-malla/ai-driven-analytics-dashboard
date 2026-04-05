@@ -7,7 +7,7 @@ Follow this process **in order** for every new chart request. Do not skip steps.
 
 ## Step 1 — Check answerability
 
-Use the `data-analyst` subagent to check if the question can be answered from the CMS Hospital Compare schema.
+Use the `data-analyst` subagent to check if the question can be answered from the WHO GHO schema.
 
 If the analyst returns `answerable: false`, stop here and explain what data would be needed and why it's not available.
 
@@ -17,7 +17,7 @@ The `data-analyst` subagent returns a structured query plan with tables, columns
 
 Review the plan:
 - Does it make business sense for a CXO?
-- Are the filters handling "Not Available" values correctly?
+- Are the filters handling NULL values correctly (`WHERE value IS NOT NULL`)?
 - Is the chart type appropriate for the data shape?
 
 ## Step 3 — Build and validate SQL
@@ -63,5 +63,5 @@ After returning the spec, write 2–3 sentences explaining the key insight from 
 ## Rules
 
 - Never return a chart with fewer than 3 data points
-- If data is empty after filtering "Not Available", explain this clearly rather than returning an empty chart
+- If data is empty after filtering NULL values, explain this clearly rather than returning an empty chart
 - Always include the SQL in the spec so the user can verify the result

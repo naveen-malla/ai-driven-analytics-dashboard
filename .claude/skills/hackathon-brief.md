@@ -23,7 +23,7 @@ Format exactly as below. Keep it tight — readable in 2 minutes.
 
 ### Hackathon Brief — [today's date]
 
-**What this is**: Rehearsal project for the Kasha Unified Insights Platform hackathon (week of 2026-04-06). Architecture proven on CMS public data before rebuilding on Kasha's actual databases. Team: Naveen (backend/AI), Pathey (data), Marco (UI/UX).
+**What this is**: Rehearsal project for the Kasha Unified Insights Platform hackathon (week of 2026-04-06). Architecture proven on WHO GHO public data before rebuilding on Kasha's actual databases. Team: Naveen (backend/AI), Pathey (data), Marco (UI/UX).
 
 ---
 
@@ -57,7 +57,7 @@ List 3–5 questions that are actually unresolved right now. Only include questi
 **Your role on hackathon day**:
 
 - **Marco** → Own `dashboard/` and `.streamlit/`. First task: run `/ui-ux-pro-max plan` to pick theme, create `dashboard/theme.py` and `.streamlit/config.toml`. No backend dependency needed to start.
-- **Pathey** → Own `data/`. First task: connect Kasha databases, run `load_kasha.py`, populate `schema_registry.json` with real column names. Everyone waits on you before writing SQL.
+- **Pathey** → Own `data/`. First task: connect Kasha databases, run `load_who.py` as reference then the Kasha equivalent, populate `schema_registry.json` with real column names. Everyone waits on you before writing SQL.
 - **Naveen** → Own `backend/` and `.claude/`. Current phase priority: [read from PLAN.md — the first incomplete phase].
 
 ---

@@ -1,6 +1,6 @@
 ---
 name: schema-check
-description: Check if a natural language question can be answered from the available CMS Hospital Compare schema. Returns answerable/not-answerable/partial with exact table and column names, and explains what is missing if not answerable.
+description: Check if a natural language question can be answered from the available WHO GHO health indicators schema. Returns answerable/not-answerable/partial with exact table and column names, and explains what is missing if not answerable.
 ---
 
 Read `data/schema_registry.json` first. Then, given a natural language question:
@@ -9,9 +9,9 @@ Read `data/schema_registry.json` first. Then, given a natural language question:
 
 What dimensions does this question need?
 - A metric (what to measure)
-- A grouping dimension (by state, by hospital type, by measure, etc.)
-- A time dimension (CMS data is a snapshot — no time series unless explicitly stored)
-- A filter (specific measure, hospital type, state, etc.)
+- A grouping dimension (by country, by indicator, by sex, by year, etc.)
+- A time dimension (latest year, specific year, or year-over-year comparison)
+- A filter (specific indicator code, country code, sex, etc.)
 
 ## Step 2 — Map to available schema
 
@@ -22,16 +22,16 @@ For each required dimension, find the exact table and column name in the schema.
 **Answerable** — all required dimensions exist:
 ```
 ANSWERABLE
-Tables: hospitals, readmissions
-Key columns: hospitals.state, readmissions.score, readmissions.measure_id
-Notes: score column is VARCHAR — needs CAST and NULL handling
+Tables: countries, country_data
+Key columns: countries.country_name, country_data.value, country_data.indicator_code, country_data.year
+Notes: always filter WHERE value IS NOT NULL; use sex = 'BTSX' for both-sexes aggregations
 ```
 
 **Not answerable** — required data is missing:
 ```
 NOT ANSWERABLE
 Missing: [describe what data would be needed]
-Reason: CMS Hospital Compare does not include [cost / revenue / patient volume / diagnoses / staffing / etc.]
+Reason: WHO GHO data does not include [individual patient records / drug pricing / supply chain / country-specific clinical protocols / etc.]
 Available metrics that are related: [suggest what CAN be answered that is close]
 ```
 
@@ -45,9 +45,10 @@ Suggested reformulation: [a question that CAN be answered from available data]
 
 ## Common not-answerable categories in this dataset
 
-- **Financial**: cost per procedure, revenue, reimbursement rates, billing data
-- **Volume**: number of patients, admissions count, bed occupancy
-- **Clinical**: specific diagnoses, treatment protocols, medication usage
-- **Staffing**: nurse-to-patient ratios, physician counts, staff satisfaction
-- **Time series**: trend data (CMS Compare is a snapshot, not longitudinal)
-- **Individual patients**: any question about specific patient records
+- **Financial**: drug pricing, cost per treatment, revenue, reimbursement rates
+- **Individual records**: any question about specific patient or person records
+- **Clinical protocols**: country-specific treatment guidelines, medication dosage data
+- **Supply chain / logistics**: stock levels, distribution routes, procurement data
+- **Outside tracked countries**: questions requiring data from countries other than RWA, KEN, UGA, ETH, TZA
+- **Forecasting**: predictions or projections not derivable from the available indicator values
+- **Time series**: trend data only available if multiple years exist for the indicator in `country_data`
