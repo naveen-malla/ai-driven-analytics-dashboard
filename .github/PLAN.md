@@ -1,9 +1,10 @@
 # Active Plan
 
-Last updated: 2026-04-04
+Last updated: 2026-04-05
 
 ## Current objective
-Set up the full project repo: documentation, Claude ecosystem files, then implementation.
+Phase 3 — Wire up real Claude API integration (intent classifier, tool-calling loop, handlers).
+After that: run data pipeline to populate DuckDB, then smoke-test full stack end-to-end.
 
 ## Checklist
 
@@ -14,56 +15,64 @@ Set up the full project repo: documentation, Claude ecosystem files, then implem
 - [x] `.github/PLAN.md` (this file)
 - [x] `.github/DECISIONS.md`
 - [x] `.github/NOTES.md`
+- [x] `.github/INTEGRATION_CONTRACTS.md`
+- [x] `.github/personas/naveen.md`, `pathey.md`, `marco.md`
+- [x] `.github/HACKATHON_LESSONS.md`
 - [x] `.claude/settings.json`
-- [x] `.claude/agents/data-analyst.md`
-- [x] `.claude/agents/sql-validator.md`
+- [x] `.claude/agents/data-analyst.md` (WHO GHO)
+- [x] `.claude/agents/sql-validator.md` (WHO GHO)
 - [x] `.claude/skills/explain-chart.md`
 - [x] `.claude/skills/new-chart.md`
 - [x] `.claude/skills/schema-check.md`
 - [x] `.claude/skills/cxo-summary.md`
+- [x] `.claude/skills/demo-review.md`
+- [x] `.claude/skills/hackathon-brief.md`
+- [x] `.claude/skills/to-showcase.md`
 
 ### Phase 1 — Foundation
-- [ ] Write `data/load_who.py` — calls WHO GHO API for 6 indicators, filters to 5 countries (RWA/KEN/UGA/ETH/TZA), loads into `data/who_health.duckdb`
-- [ ] Run ingestion, verify row counts and NULL rates per indicator
-- [ ] Populate `data/schema_registry.json` with real column names + WHO indicator definitions
-- [ ] Initialize `backend/pyproject.toml`
-- [ ] Create directory skeleton (`backend/`, `dashboard/`, `data/`, `.streamlit/`)
+- [x] Write `data/load_who.py` — calls WHO GHO API for 6 indicators, 5 countries
+- [ ] **NEXT**: Run ingestion (`python data/load_who.py`) — verify row counts and NULL rates
+- [x] `data/schema_registry.json` — full table/column/join definitions
+- [x] `backend/pyproject.toml`
+- [x] `requirements.txt`
+- [x] Directory skeleton (`backend/`, `dashboard/`, `data/`, `.streamlit/`)
 
 ### Phase 2 — Backend Core
-- [ ] `backend/config.py` — Pydantic settings
-- [ ] `backend/models.py` — IntentResult, ChartSpec, ChatRequest, ChatResponse
-- [ ] `backend/database.py` — DuckDB read-only connection + execute_query()
-- [ ] `backend/sql_validator.py` — allowlist validation
-- [ ] `backend/provenance.py` — read/write provenance.json
-- [ ] `backend/schema_loader.py` — build_schema_digest() for prompt caching
-- [ ] `backend/static_charts.py` — 6 pre-built CXO chart definitions
-- [ ] `backend/main.py` — FastAPI app: GET /charts, GET /charts/{id}, POST /chat
+- [x] `backend/config.py` — Pydantic settings
+- [x] `backend/models.py` — IntentResult, ChartSpec, ChatRequest, ChatResponse
+- [x] `backend/database.py` — DuckDB read-only connection + execute_query()
+- [x] `backend/sql_validator.py` — 5-check allowlist validation
+- [x] `backend/provenance.py` — read/write provenance.json
+- [x] `backend/schema_loader.py` — build_schema_digest() for prompt caching
+- [x] `backend/static_charts.py` — 6 pre-built CXO chart definitions with WHO SQL
+- [x] `backend/main.py` — FastAPI app: GET /charts, GET /charts/{id}, POST /chat (stub)
+- [x] `backend/handlers/reject.py` — real refusal message
 
 ### Phase 3 — Claude API Integration
-- [ ] `backend/intent_classifier.py` — structured output → IntentResult
-- [ ] `backend/chat_orchestrator.py` — agentic tool-calling loop
-- [ ] `backend/handlers/explain_chart.py`
-- [ ] `backend/handlers/new_analysis.py` (streaming)
-- [ ] `backend/handlers/reject.py`
-- [ ] `backend/hooks/inject_schema_digest.py` — PreToolUse hook
-- [ ] `backend/hooks/save_provenance.py` — PostToolUse hook
+- [ ] `backend/intent_classifier.py` — replace stub with structured output → IntentResult
+- [ ] `backend/chat_orchestrator.py` — replace stub with agentic tool-calling loop
+- [ ] `backend/handlers/explain_chart.py` — real implementation
+- [ ] `backend/handlers/new_analysis.py` — real implementation (streaming)
+- [ ] `.env` file with `ANTHROPIC_API_KEY` (not committed — add to .gitignore)
 
 ### Phase 4 — Dashboard
-- [ ] Run `/ui-ux-pro-max plan` for palette + Plotly theme
-- [ ] `.streamlit/config.toml` — Streamlit theme
-- [ ] `dashboard/theme.py` — Plotly color constants + chart template
-- [ ] `dashboard/api_client.py` — typed httpx calls to FastAPI
-- [ ] `dashboard/components/chart_renderer.py`
-- [ ] `dashboard/components/chart_card.py`
-- [ ] `dashboard/components/chat_panel.py`
-- [ ] `dashboard/app.py` — main Streamlit app
+- [x] Run ui-ux-pro-max → data-dense dashboard, blue/amber palette
+- [x] `dashboard/DESIGN_BRIEF.md` — CXO narrative and chart ordering rationale
+- [x] `.streamlit/config.toml` — Streamlit theme
+- [x] `dashboard/theme.py` — Plotly color constants + chart template
+- [x] `dashboard/api_client.py` — typed httpx calls to FastAPI
+- [x] `dashboard/components/chart_card.py` — Plotly chart renderer, warm colors for "lower=better"
+- [x] `dashboard/components/chat_panel.py` — chat UI with session state
+- [x] `dashboard/app.py` — main Streamlit app, 2×3 chart grid + chat panel
+- [ ] End-to-end smoke test: run backend + dashboard with real DuckDB data
 
 ### Phase 5 — Polish + Demo Prep
-- [ ] `data/benchmark_questions.json` — 20 test questions (4 intent types)
-- [ ] Run all 20 benchmark questions, fix failures
+- [x] `data/benchmark_questions.json` — 10 test questions (3 intent types) — expand to 20 after Phase 3
+- [ ] Run all benchmark questions against live Claude API, fix failures
 - [ ] Error states: loading spinners, rejection messages, API errors
 - [ ] Prepare 5-minute demo script
 - [ ] Final README update with screenshots
+- [ ] Run `/demo-review` — all checks PASS
 
 ### Phase 6 — Hackathon Prep
 
