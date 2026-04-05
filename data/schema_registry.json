@@ -1,0 +1,103 @@
+{
+  "tables": {
+    "country_data": {
+      "description": "WHO GHO health indicator values by country and year",
+      "columns": {
+        "country_code": {
+          "type": "VARCHAR",
+          "description": "ISO 3-letter country code (RWA, KEN, UGA, ETH, TZA)",
+          "example_values": ["RWA", "KEN", "ETH"]
+        },
+        "indicator_code": {
+          "type": "VARCHAR",
+          "description": "WHO GHO indicator code",
+          "example_values": ["FP_CXUS_W_CURR", "MDG_0000000025"]
+        },
+        "year": {
+          "type": "INTEGER",
+          "description": "Year of measurement",
+          "example_values": ["2020", "2019"]
+        },
+        "value": {
+          "type": "FLOAT",
+          "description": "Indicator value — may be NULL for some country/year combinations",
+          "example_values": ["64.2", "41.0"]
+        },
+        "sex": {
+          "type": "VARCHAR",
+          "description": "Sex disaggregation: BTSX (both sexes), MLE (male), FMLE (female). Use BTSX for summary charts.",
+          "example_values": ["BTSX", "MLE", "FMLE"]
+        },
+        "low_estimate": {
+          "type": "FLOAT",
+          "description": "Lower bound of confidence interval — often NULL even when value is present",
+          "example_values": ["58.1", "38.5"]
+        },
+        "high_estimate": {
+          "type": "FLOAT",
+          "description": "Upper bound of confidence interval — often NULL even when value is present",
+          "example_values": ["70.3", "43.9"]
+        }
+      }
+    },
+    "countries": {
+      "description": "Country reference table — one row per target country",
+      "columns": {
+        "country_code": {
+          "type": "VARCHAR",
+          "description": "ISO 3-letter country code — primary key",
+          "example_values": ["RWA", "KEN"]
+        },
+        "country_name": {
+          "type": "VARCHAR",
+          "description": "Full country name",
+          "example_values": ["Rwanda", "Kenya"]
+        }
+      }
+    },
+    "indicators": {
+      "description": "Indicator reference table — one row per WHO GHO indicator loaded",
+      "columns": {
+        "indicator_code": {
+          "type": "VARCHAR",
+          "description": "WHO GHO indicator code — primary key",
+          "example_values": ["FP_CXUS_W_CURR"]
+        },
+        "indicator_name": {
+          "type": "VARCHAR",
+          "description": "Human-readable indicator name",
+          "example_values": ["Contraceptive prevalence, any method (%)"]
+        },
+        "unit": {
+          "type": "VARCHAR",
+          "description": "Unit of measurement",
+          "example_values": ["%", "per 100 000 live births"]
+        }
+      }
+    }
+  },
+  "allowed_joins": [
+    {
+      "from_table": "country_data",
+      "to_table": "countries",
+      "on": "country_data.country_code = countries.country_code",
+      "description": "Join health indicator values to country names"
+    },
+    {
+      "from_table": "country_data",
+      "to_table": "indicators",
+      "on": "country_data.indicator_code = indicators.indicator_code",
+      "description": "Join health indicator values to indicator metadata"
+    }
+  ],
+  "business_context": "WHO Global Health Observatory data for 5 core markets in East Africa: Rwanda, Kenya, Uganda, Ethiopia, Tanzania. Covers reproductive health, maternal health, and child health indicators. Data is cross-sectional by year — not all indicators have data for every country/year combination. Always filter WHERE value IS NOT NULL.",
+  "not_answerable": [
+    "Individual patient or person records",
+    "Drug pricing, procurement costs, or supply chain data",
+    "Country-specific clinical protocols or treatment guidelines",
+    "Forecasts or projections beyond available data years",
+    "Questions requiring data from countries outside RWA, KEN, UGA, ETH, TZA",
+    "Causal attribution or explanation of why a metric changed",
+    "Staffing levels, healthcare worker counts, or facility capacity"
+  ]
+}
