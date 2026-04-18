@@ -9,21 +9,21 @@ export default {
         mono: ['Fira Code', 'ui-monospace', 'monospace'],
       },
       colors: {
-        canvas: '#060D1B',
-        surface: 'rgba(255,255,255,0.04)',
-        'surface-hover': 'rgba(255,255,255,0.07)',
-        rim: 'rgba(255,255,255,0.08)',
-        'rim-bright': 'rgba(59,130,246,0.4)',
+        canvas: '#F1F5F9',
+        surface: '#FFFFFF',
+        'surface-hover': '#F8FAFC',
+        rim: '#E2E8F0',
+        'rim-bright': 'rgba(37,99,235,0.35)',
       },
       backgroundImage: {
         'canvas-grad':
-          'radial-gradient(ellipse at 15% 60%, rgba(59,130,246,0.10) 0%, transparent 55%), radial-gradient(ellipse at 85% 15%, rgba(168,139,250,0.07) 0%, transparent 50%)',
+          'radial-gradient(ellipse at 15% 60%, rgba(37,99,235,0.05) 0%, transparent 55%), radial-gradient(ellipse at 85% 15%, rgba(124,58,237,0.03) 0%, transparent 50%)',
       },
       boxShadow: {
-        glass: '0 8px 32px rgba(0,0,0,0.45)',
-        'glass-lg': '0 16px 48px rgba(0,0,0,0.55)',
-        glow: '0 0 20px rgba(59,130,246,0.25)',
-        'glow-amber': '0 0 20px rgba(245,158,11,0.25)',
+        glass: '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)',
+        'glass-lg': '0 4px 12px rgba(0,0,0,0.08), 0 16px 32px rgba(0,0,0,0.06)',
+        glow: '0 0 0 3px rgba(37,99,235,0.12)',
+        'glow-amber': '0 0 0 3px rgba(217,119,6,0.12)',
       },
       animation: {
         'fade-in': 'fadeIn 0.4s ease forwards',
