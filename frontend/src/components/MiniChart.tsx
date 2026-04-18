@@ -8,19 +8,19 @@ export default function MiniChart({ chart }: { chart: ChartSpec }) {
     <div style={{ height: 120 }}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={chart.data} margin={{ top: 2, right: 4, left: -20, bottom: 0 }}>
-          <XAxis dataKey={chart.x_key} tick={{ fill: '#64748B', fontSize: 9 }} axisLine={false} tickLine={false} />
-          <YAxis tick={{ fill: '#64748B', fontSize: 9 }} axisLine={false} tickLine={false} width={30} />
+          <XAxis dataKey={chart.x_key} tick={{ fill: '#94A3B8', fontSize: 9 }} axisLine={false} tickLine={false} />
+          <YAxis tick={{ fill: '#94A3B8', fontSize: 9 }} axisLine={false} tickLine={false} width={30} />
           <Tooltip
             content={({ active, payload, label }) =>
               active && payload?.length ? (
-                <div className="glass rounded-lg px-2 py-1 text-[10px]">
-                  <span className="font-semibold text-slate-200">{label}</span>
+                <div className="bg-white border border-slate-200 rounded-lg px-2 py-1 shadow-sm text-[10px]">
+                  <span className="font-semibold text-slate-800">{label}</span>
                   {' · '}
-                  <span className="font-mono text-blue-300">{(payload[0].value as number).toFixed(1)}</span>
+                  <span className="font-mono text-blue-600">{(payload[0].value as number).toFixed(1)}</span>
                 </div>
               ) : null
             }
-            cursor={{ fill: 'rgba(255,255,255,0.03)' }}
+            cursor={{ fill: 'rgba(0,0,0,0.03)' }}
           />
           <Bar dataKey={chart.y_key} radius={[3, 3, 0, 0]} maxBarSize={32}>
             {chart.data.map((_, i) => (
