@@ -19,9 +19,9 @@ interface Props {
 
 export default function Sidebar({ charts, selectedChartId, onSelectChart }: Props) {
   return (
-    <aside className="glass flex w-56 shrink-0 flex-col border-r border-white/[0.07] overflow-y-auto">
+    <aside className="bg-white flex w-56 shrink-0 flex-col border-r border-slate-200 shadow-sm overflow-y-auto">
       <div className="px-4 pt-5 pb-3">
-        <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-500">
+        <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
           Indicators
         </p>
       </div>
@@ -36,20 +36,20 @@ export default function Sidebar({ charts, selectedChartId, onSelectChart }: Prop
               onClick={() => onSelectChart(chart.chart_id)}
               className={clsx(
                 'w-full cursor-pointer rounded-lg px-3 py-2.5 text-left transition-all duration-150',
-                'flex items-start gap-2.5 group',
+                'flex items-start gap-2.5',
                 active
-                  ? 'bg-blue-600/15 ring-1 ring-blue-500/30 text-slate-100'
-                  : 'text-slate-400 hover:bg-white/[0.05] hover:text-slate-200',
+                  ? 'bg-blue-50 ring-1 ring-blue-200 text-slate-800'
+                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-800',
               )}
             >
-              <span className="mt-0.5 shrink-0 text-sm opacity-70">{ICONS[chart.chart_id] ?? '◉'}</span>
+              <span className="mt-0.5 shrink-0 text-sm text-slate-400">{ICONS[chart.chart_id] ?? '◉'}</span>
               <span className="flex-1 min-w-0">
                 <span className="block text-xs font-medium leading-snug truncate">{chart.title}</span>
                 <span className={clsx(
                   'mt-1 inline-flex items-center rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide',
                   lower
-                    ? 'bg-emerald-500/10 text-emerald-400'
-                    : 'bg-blue-500/10 text-blue-400',
+                    ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200'
+                    : 'bg-blue-50 text-blue-700 ring-1 ring-blue-200',
                 )}>
                   {lower ? '↓ lower' : '↑ higher'}
                 </span>
@@ -59,8 +59,8 @@ export default function Sidebar({ charts, selectedChartId, onSelectChart }: Prop
         })}
       </nav>
 
-      <div className="border-t border-white/[0.07] px-4 py-3">
-        <p className="text-[9px] font-medium uppercase tracking-widest text-slate-600">
+      <div className="border-t border-slate-200 px-4 py-3">
+        <p className="text-[9px] font-medium uppercase tracking-widest text-slate-400">
           WHO GHO · 5 countries
         </p>
       </div>
