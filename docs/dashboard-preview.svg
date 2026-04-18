@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800">
+<rect width="1280" height="800" fill="#060D1B"/>
+<defs><radialGradient id="g1" cx="15%" cy="65%" r="55%"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12"/><stop offset="100%" stop-color="#060D1B" stop-opacity="0"/></radialGradient><radialGradient id="g2" cx="85%" cy="15%" r="50%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.08"/><stop offset="100%" stop-color="#060D1B" stop-opacity="0"/></radialGradient></defs>
+<rect width="1280" height="800" fill="url(#g1)"/>
+<rect width="1280" height="800" fill="url(#g2)"/>
+<rect width="1280" height="60" fill="#0E1729" fill-opacity="0.8" stroke="#172236" stroke-width="1"/>
+<rect x="16" y="16" width="28" height="28" rx="8" fill="#3B82F6" fill-opacity="0.2" stroke="#3B82F6" stroke-opacity="0.3" stroke-width="1"/>
+<polyline points="22,30 26,24 30,32 34,28 38,30" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="54" y="26" fill="#F1F5F9" font-size="13" font-weight="600" text-anchor="start" font-family="sans-serif">HealthAnalytics</text>
+<text x="54" y="41" fill="#475569" font-size="8" font-weight="600" text-anchor="start" font-family="sans-serif">AI COPILOT</text>
+<line x1="180" y1="16" x2="180" y2="44" stroke="#172236" stroke-width="1"/>
+<circle cx="196" cy="30" r="4" fill="#10B981"/>
+<circle cx="196" cy="30" r="4" fill="#10B981" opacity="0.4"><animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0;0.4" dur="2s" repeatCount="indefinite"/></circle>
+<text x="206" y="34" fill="#475569" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">Backend</text>
+<circle cx="276" cy="30" r="4" fill="#10B981"/>
+<circle cx="276" cy="30" r="4" fill="#10B981" opacity="0.4"><animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0;0.4" dur="2s" repeatCount="indefinite"/></circle>
+<text x="286" y="34" fill="#475569" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">Data</text>
+<circle cx="356" cy="30" r="4" fill="#10B981"/>
+<circle cx="356" cy="30" r="4" fill="#10B981" opacity="0.4"><animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0;0.4" dur="2s" repeatCount="indefinite"/></circle>
+<text x="366" y="34" fill="#475569" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">AI</text>
+<text x="1080" y="34" fill="#475569" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">Sat, Apr 18 2026</text>
+<rect x="1220" y="18" width="24" height="24" rx="6" fill="#3B82F6" fill-opacity="0.15"/>
+<rect x="1246" y="18" width="24" height="24" rx="6" fill="#0E1729"/>
+<text x="1238" y="34" fill="#3B82F6" font-size="14" font-weight="400" text-anchor="middle" font-family="sans-serif">⊞</text>
+<text x="1264" y="34" fill="#475569" font-size="12" font-weight="400" text-anchor="middle" font-family="sans-serif">💬</text>
+<rect x="0" y="60" width="210" height="740" fill="#0E1729" fill-opacity="0.6" stroke="#172236" stroke-width="1"/>
+<text x="16" y="82" fill="#475569" font-size="8" font-weight="600" text-anchor="start" font-family="sans-serif">INDICATORS</text>
+<text x="22" y="114" fill="#475569" font-size="12" font-weight="400" text-anchor="start" font-family="sans-serif">♀</text>
+<text x="40" y="114" fill="#94A3B8" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">Contraceptive Prev.</text>
+<rect x="40" y="119" width="64.0" height="15" rx="7" fill="#3B82F6" fill-opacity="0.12"/><text x="72.0" y="130" fill="#3B82F6" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↑ higher</text>
+<rect x="8" y="154" width="194" height="50" rx="8" fill="#3B82F6" fill-opacity="0.12" stroke="#3B82F6" stroke-opacity="0.25" stroke-width="1"/>
+<text x="22" y="172" fill="#3B82F6" font-size="12" font-weight="400" text-anchor="start" font-family="sans-serif">♥</text>
+<text x="40" y="172" fill="#F1F5F9" font-size="10" font-weight="600" text-anchor="start" font-family="sans-serif">Maternal Mortality</text>
+<rect x="40" y="177" width="57.5" height="15" rx="7" fill="#10B981" fill-opacity="0.12"/><text x="68.75" y="188" fill="#10B981" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↓ lower</text>
+<text x="22" y="230" fill="#475569" font-size="12" font-weight="400" text-anchor="start" font-family="sans-serif">✚</text>
+<text x="40" y="230" fill="#94A3B8" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">Antenatal Care</text>
+<rect x="40" y="235" width="64.0" height="15" rx="7" fill="#3B82F6" fill-opacity="0.12"/><text x="72.0" y="246" fill="#3B82F6" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↑ higher</text>
+<text x="22" y="288" fill="#475569" font-size="12" font-weight="400" text-anchor="start" font-family="sans-serif">★</text>
+<text x="40" y="288" fill="#94A3B8" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">Skilled Birth Att.</text>
+<rect x="40" y="293" width="64.0" height="15" rx="7" fill="#3B82F6" fill-opacity="0.12"/><text x="72.0" y="304" fill="#3B82F6" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↑ higher</text>
+<text x="22" y="346" fill="#475569" font-size="12" font-weight="400" text-anchor="start" font-family="sans-serif">◆</text>
+<text x="40" y="346" fill="#94A3B8" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">Under-5 Mortality</text>
+<rect x="40" y="351" width="57.5" height="15" rx="7" fill="#10B981" fill-opacity="0.12"/><text x="68.75" y="362" fill="#10B981" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↓ lower</text>
+<text x="22" y="404" fill="#475569" font-size="12" font-weight="400" text-anchor="start" font-family="sans-serif">⬡</text>
+<text x="40" y="404" fill="#94A3B8" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">HIV Prevalence</text>
+<rect x="40" y="409" width="57.5" height="15" rx="7" fill="#10B981" fill-opacity="0.12"/><text x="68.75" y="420" fill="#10B981" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↓ lower</text>
+<line x1="0" y1="770" x2="210" y2="770" stroke="#172236" stroke-width="1"/>
+<text x="105" y="788" fill="#475569" font-size="8" font-weight="400" text-anchor="middle" font-family="sans-serif">WHO GHO · 5 countries</text>
+<rect x="230" y="80" width="330" height="222" rx="14" fill="#0E1729" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="244" y="102" fill="#F1F5F9" font-size="11" font-weight="600" text-anchor="start" font-family="sans-serif">Contraceptive Prevalence</text>
+<rect x="244" y="107" width="129.0" height="15" rx="7" fill="#3B82F6" fill-opacity="0.12"/><text x="308.5" y="118" fill="#3B82F6" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↑ higher is better</text>
+<line x1="244" y1="214" x2="546" y2="214" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="244" y1="173" x2="546" y2="173" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="244" y1="134" x2="546" y2="134" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<path d="M280,144 h30 q4,0 4,4 v104 h-38 v-104 q0,-4 4,-4z" fill="#3B82F6" fill-opacity="0.85"/>
+<text x="295" y="266" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">RWA</text>
+<path d="M330,149 h30 q4,0 4,4 v99 h-38 v-99 q0,-4 4,-4z" fill="#F59E0B" fill-opacity="0.85"/>
+<text x="345" y="266" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">KEN</text>
+<path d="M380,185 h30 q4,0 4,4 v63 h-38 v-63 q0,-4 4,-4z" fill="#10B981" fill-opacity="0.85"/>
+<text x="395" y="266" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">ETH</text>
+<path d="M430,188 h30 q4,0 4,4 v60 h-38 v-60 q0,-4 4,-4z" fill="#A78BFA" fill-opacity="0.85"/>
+<text x="445" y="266" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">TZA</text>
+<path d="M480,192 h30 q4,0 4,4 v56 h-38 v-56 q0,-4 4,-4z" fill="#F43F5E" fill-opacity="0.85"/>
+<text x="495" y="266" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">UGA</text>
+<rect x="244" y="274" width="302" height="20" rx="6" fill="#0A1220" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="252" y="288" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Metric definition</text>
+<text x="534" y="288" fill="#475569" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">∨</text>
+<rect x="478" y="94" width="68" height="20" rx="6" fill="#3B82F6" stroke="none" stroke-width="0" fill-opacity="1"/>
+<rect x="478" y="94" width="68" height="20" rx="6" fill="#3B82F6" fill-opacity="0.9"/>
+<text x="512" y="107" fill="#F1F5F9" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">Ask AI</text>
+<rect x="576" y="80" width="330" height="222" rx="14" fill="#0E1729" stroke="#2A3F5F" stroke-width="1.5" fill-opacity="1"/>
+<rect x="576" y="80" width="330" height="222" rx="14" fill="#3B82F6" fill-opacity="0.05"/>
+<text x="590" y="102" fill="#F1F5F9" font-size="11" font-weight="600" text-anchor="start" font-family="sans-serif">Maternal Mortality</text>
+<rect x="590" y="107" width="122.5" height="15" rx="7" fill="#10B981" fill-opacity="0.12"/><text x="651.25" y="118" fill="#10B981" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↓ lower is better</text>
+<line x1="590" y1="214" x2="892" y2="214" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="590" y1="173" x2="892" y2="173" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="590" y1="134" x2="892" y2="134" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<path d="M626,198 h30 q4,0 4,4 v50 h-38 v-50 q0,-4 4,-4z" fill="#10B981" fill-opacity="0.85"/>
+<text x="641" y="266" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">RWA</text>
+<path d="M676,193 h30 q4,0 4,4 v55 h-38 v-55 q0,-4 4,-4z" fill="#22C55E" fill-opacity="0.85"/>
+<text x="691" y="266" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">UGA</text>
+<path d="M726,168 h30 q4,0 4,4 v80 h-38 v-80 q0,-4 4,-4z" fill="#F59E0B" fill-opacity="0.85"/>
+<text x="741" y="266" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">ETH</text>
+<path d="M776,154 h30 q4,0 4,4 v94 h-38 v-94 q0,-4 4,-4z" fill="#F97316" fill-opacity="0.85"/>
+<text x="791" y="266" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">TZA</text>
+<path d="M826,141 h30 q4,0 4,4 v107 h-38 v-107 q0,-4 4,-4z" fill="#EF4444" fill-opacity="0.85"/>
+<text x="841" y="266" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">KEN</text>
+<rect x="590" y="274" width="302" height="20" rx="6" fill="#0A1220" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="598" y="288" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Metric definition</text>
+<text x="880" y="288" fill="#475569" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">∨</text>
+<rect x="824" y="94" width="68" height="20" rx="6" fill="#3B82F6" stroke="none" stroke-width="0" fill-opacity="1"/>
+<rect x="824" y="94" width="68" height="20" rx="6" fill="#3B82F6" fill-opacity="0.9"/>
+<text x="858" y="107" fill="#F1F5F9" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">Ask AI</text>
+<rect x="230" y="318" width="330" height="222" rx="14" fill="#0E1729" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="244" y="340" fill="#F1F5F9" font-size="11" font-weight="600" text-anchor="start" font-family="sans-serif">Antenatal Care Coverage</text>
+<rect x="244" y="345" width="129.0" height="15" rx="7" fill="#3B82F6" fill-opacity="0.12"/><text x="308.5" y="356" fill="#3B82F6" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↑ higher is better</text>
+<line x1="244" y1="452" x2="546" y2="452" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="244" y1="411" x2="546" y2="411" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="244" y1="372" x2="546" y2="372" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<path d="M280,404 h30 q4,0 4,4 v82 h-38 v-82 q0,-4 4,-4z" fill="#3B82F6" fill-opacity="0.85"/>
+<text x="295" y="504" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">RWA</text>
+<path d="M330,382 h30 q4,0 4,4 v104 h-38 v-104 q0,-4 4,-4z" fill="#F59E0B" fill-opacity="0.85"/>
+<text x="345" y="504" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">KEN</text>
+<path d="M380,406 h30 q4,0 4,4 v80 h-38 v-80 q0,-4 4,-4z" fill="#10B981" fill-opacity="0.85"/>
+<text x="395" y="504" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">ETH</text>
+<path d="M430,440 h30 q4,0 4,4 v46 h-38 v-46 q0,-4 4,-4z" fill="#A78BFA" fill-opacity="0.85"/>
+<text x="445" y="504" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">TZA</text>
+<path d="M480,406 h30 q4,0 4,4 v80 h-38 v-80 q0,-4 4,-4z" fill="#F43F5E" fill-opacity="0.85"/>
+<text x="495" y="504" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">UGA</text>
+<rect x="244" y="512" width="302" height="20" rx="6" fill="#0A1220" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="252" y="526" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Metric definition</text>
+<text x="534" y="526" fill="#475569" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">∨</text>
+<rect x="478" y="332" width="68" height="20" rx="6" fill="#3B82F6" stroke="none" stroke-width="0" fill-opacity="1"/>
+<rect x="478" y="332" width="68" height="20" rx="6" fill="#3B82F6" fill-opacity="0.9"/>
+<text x="512" y="345" fill="#F1F5F9" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">Ask AI</text>
+<rect x="576" y="318" width="330" height="222" rx="14" fill="#0E1729" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="590" y="340" fill="#F1F5F9" font-size="11" font-weight="600" text-anchor="start" font-family="sans-serif">Skilled Birth Attendance</text>
+<rect x="590" y="345" width="129.0" height="15" rx="7" fill="#3B82F6" fill-opacity="0.12"/><text x="654.5" y="356" fill="#3B82F6" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↑ higher is better</text>
+<line x1="590" y1="452" x2="892" y2="452" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="590" y1="411" x2="892" y2="411" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="590" y1="372" x2="892" y2="372" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<path d="M626,378 h30 q4,0 4,4 v108 h-38 v-108 q0,-4 4,-4z" fill="#3B82F6" fill-opacity="0.85"/>
+<text x="641" y="504" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">RWA</text>
+<path d="M676,380 h30 q4,0 4,4 v106 h-38 v-106 q0,-4 4,-4z" fill="#F59E0B" fill-opacity="0.85"/>
+<text x="691" y="504" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">KEN</text>
+<path d="M726,428 h30 q4,0 4,4 v58 h-38 v-58 q0,-4 4,-4z" fill="#10B981" fill-opacity="0.85"/>
+<text x="741" y="504" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">ETH</text>
+<path d="M776,386 h30 q4,0 4,4 v100 h-38 v-100 q0,-4 4,-4z" fill="#A78BFA" fill-opacity="0.85"/>
+<text x="791" y="504" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">TZA</text>
+<path d="M826,398 h30 q4,0 4,4 v88 h-38 v-88 q0,-4 4,-4z" fill="#F43F5E" fill-opacity="0.85"/>
+<text x="841" y="504" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">UGA</text>
+<rect x="590" y="512" width="302" height="20" rx="6" fill="#0A1220" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="598" y="526" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Metric definition</text>
+<text x="880" y="526" fill="#475569" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">∨</text>
+<rect x="824" y="332" width="68" height="20" rx="6" fill="#3B82F6" stroke="none" stroke-width="0" fill-opacity="1"/>
+<rect x="824" y="332" width="68" height="20" rx="6" fill="#3B82F6" fill-opacity="0.9"/>
+<text x="858" y="345" fill="#F1F5F9" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">Ask AI</text>
+<rect x="230" y="556" width="330" height="222" rx="14" fill="#0E1729" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="244" y="578" fill="#F1F5F9" font-size="11" font-weight="600" text-anchor="start" font-family="sans-serif">Under-5 Mortality Rate</text>
+<rect x="244" y="583" width="122.5" height="15" rx="7" fill="#10B981" fill-opacity="0.12"/><text x="305.25" y="594" fill="#10B981" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↓ lower is better</text>
+<line x1="244" y1="690" x2="546" y2="690" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="244" y1="649" x2="546" y2="649" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="244" y1="610" x2="546" y2="610" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<path d="M280,653 h30 q4,0 4,4 v71 h-38 v-71 q0,-4 4,-4z" fill="#10B981" fill-opacity="0.85"/>
+<text x="295" y="742" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">RWA</text>
+<path d="M330,641 h30 q4,0 4,4 v83 h-38 v-83 q0,-4 4,-4z" fill="#22C55E" fill-opacity="0.85"/>
+<text x="345" y="742" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">KEN</text>
+<path d="M380,632 h30 q4,0 4,4 v92 h-38 v-92 q0,-4 4,-4z" fill="#F59E0B" fill-opacity="0.85"/>
+<text x="395" y="742" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">UGA</text>
+<path d="M430,627 h30 q4,0 4,4 v97 h-38 v-97 q0,-4 4,-4z" fill="#F97316" fill-opacity="0.85"/>
+<text x="445" y="742" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">TZA</text>
+<path d="M480,624 h30 q4,0 4,4 v100 h-38 v-100 q0,-4 4,-4z" fill="#EF4444" fill-opacity="0.85"/>
+<text x="495" y="742" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">ETH</text>
+<rect x="244" y="750" width="302" height="20" rx="6" fill="#0A1220" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="252" y="764" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Metric definition</text>
+<text x="534" y="764" fill="#475569" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">∨</text>
+<rect x="478" y="570" width="68" height="20" rx="6" fill="#3B82F6" stroke="none" stroke-width="0" fill-opacity="1"/>
+<rect x="478" y="570" width="68" height="20" rx="6" fill="#3B82F6" fill-opacity="0.9"/>
+<text x="512" y="583" fill="#F1F5F9" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">Ask AI</text>
+<rect x="576" y="556" width="330" height="222" rx="14" fill="#0E1729" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="590" y="578" fill="#F1F5F9" font-size="11" font-weight="600" text-anchor="start" font-family="sans-serif">HIV Prevalence</text>
+<rect x="590" y="583" width="122.5" height="15" rx="7" fill="#10B981" fill-opacity="0.12"/><text x="651.25" y="594" fill="#10B981" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">↓ lower is better</text>
+<line x1="590" y1="690" x2="892" y2="690" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="590" y1="649" x2="892" y2="649" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="590" y1="610" x2="892" y2="610" stroke="#172236" stroke-width="1" stroke-dasharray="3,3"/>
+<path d="M626,711 h30 q4,0 4,4 v13 h-38 v-13 q0,-4 4,-4z" fill="#10B981" fill-opacity="0.85"/>
+<text x="641" y="742" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">ETH</text>
+<path d="M676,679 h30 q4,0 4,4 v45 h-38 v-45 q0,-4 4,-4z" fill="#22C55E" fill-opacity="0.85"/>
+<text x="691" y="742" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">RWA</text>
+<path d="M726,644 h30 q4,0 4,4 v80 h-38 v-80 q0,-4 4,-4z" fill="#F59E0B" fill-opacity="0.85"/>
+<text x="741" y="742" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">KEN</text>
+<path d="M776,634 h30 q4,0 4,4 v90 h-38 v-90 q0,-4 4,-4z" fill="#F97316" fill-opacity="0.85"/>
+<text x="791" y="742" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">TZA</text>
+<path d="M826,628 h30 q4,0 4,4 v96 h-38 v-96 q0,-4 4,-4z" fill="#EF4444" fill-opacity="0.85"/>
+<text x="841" y="742" fill="#475569" font-size="9" text-anchor="middle" font-family="sans-serif">UGA</text>
+<rect x="590" y="750" width="302" height="20" rx="6" fill="#0A1220" stroke="#172236" stroke-width="1" fill-opacity="1"/>
+<text x="598" y="764" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Metric definition</text>
+<text x="880" y="764" fill="#475569" font-size="10" font-weight="400" text-anchor="start" font-family="sans-serif">∨</text>
+<rect x="824" y="570" width="68" height="20" rx="6" fill="#3B82F6" stroke="none" stroke-width="0" fill-opacity="1"/>
+<rect x="824" y="570" width="68" height="20" rx="6" fill="#3B82F6" fill-opacity="0.9"/>
+<text x="858" y="583" fill="#F1F5F9" font-size="9" font-weight="600" text-anchor="middle" font-family="sans-serif">Ask AI</text>
+<rect x="930" y="60" width="350" height="740" fill="#0E1729" fill-opacity="0.6" stroke="#172236" stroke-width="1"/>
+<rect x="930" y="60" width="350" height="46" fill="#060D1B" fill-opacity="0.4" stroke="#172236" stroke-width="1"/>
+<rect x="942" y="70" width="26" height="26" rx="8" fill="#A78BFA" fill-opacity="0.15" stroke="#A78BFA" stroke-opacity="0.25" stroke-width="1"/>
+<text x="953" y="81" fill="#A78BFA" font-size="11" font-weight="400" text-anchor="middle" font-family="sans-serif">✨</text>
+<text x="976" y="84" fill="#F1F5F9" font-size="11" font-weight="600" text-anchor="start" font-family="sans-serif">Health Copilot</text>
+<text x="976" y="97" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Context: Maternal Mortality</text>
+<rect x="1075" y="130" width="60" height="60" rx="16" fill="#A78BFA" fill-opacity="0.1" stroke="#A78BFA" stroke-opacity="0.2" stroke-width="1"/>
+<text x="1105" y="166" fill="#A78BFA" font-size="24" font-weight="400" text-anchor="middle" font-family="sans-serif">✨</text>
+<text x="1105" y="202" fill="#F1F5F9" font-size="11" font-weight="500" text-anchor="middle" font-family="sans-serif">Ask anything about health data</text>
+<text x="1105" y="218" fill="#475569" font-size="9" font-weight="400" text-anchor="middle" font-family="sans-serif">WHO data across 5 East African countries</text>
+<rect x="942" y="232" width="326" height="24" rx="8" fill="#060D1B" fill-opacity="0.8" stroke="#172236" stroke-width="1"/>
+<text x="950" y="247" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Compare maternal mortality across countries</text>
+<rect x="942" y="264" width="326" height="24" rx="8" fill="#060D1B" fill-opacity="0.8" stroke="#172236" stroke-width="1"/>
+<text x="950" y="279" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Which country has highest HIV?</text>
+<rect x="942" y="296" width="326" height="24" rx="8" fill="#060D1B" fill-opacity="0.8" stroke="#172236" stroke-width="1"/>
+<text x="950" y="311" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Show contraceptive trends</text>
+<circle cx="1260" cy="342" r="11" fill="#3B82F6" fill-opacity="0.15" stroke="#3B82F6" stroke-opacity="0.3" stroke-width="1"/>
+<text x="1260" y="346" fill="#3B82F6" font-size="10" font-weight="400" text-anchor="middle" font-family="sans-serif">👤</text>
+<rect x="942" y="330" width="290" height="30" rx="10" fill="#3B82F6" fill-opacity="0.2" stroke="#172236" stroke-width="1"/>
+<text x="952" y="343" fill="#F1F5F9" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Compare maternal mortality rates</text>
+<circle cx="948" cy="384" r="11" fill="#A78BFA" fill-opacity="0.15" stroke="#A78BFA" stroke-opacity="0.3" stroke-width="1"/>
+<text x="948" y="388" fill="#A78BFA" font-size="10" font-weight="400" text-anchor="middle" font-family="sans-serif">🤖</text>
+<rect x="970" y="372" width="290" height="72" rx="10" fill="#0E1729" fill-opacity="1" stroke="#172236" stroke-width="1"/>
+<text x="980" y="385" fill="#94A3B8" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Rwanda has the lowest MMR at</text>
+<text x="980" y="399" fill="#94A3B8" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">259/100k, followed by Uganda</text>
+<text x="980" y="413" fill="#94A3B8" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">(284). Kenya has the highest at</text>
+<text x="980" y="427" fill="#94A3B8" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">530/100k.</text>
+<line x1="930" y1="740" x2="1280" y2="740" stroke="#172236" stroke-width="1"/>
+<rect x="942" y="748" width="298" height="34" rx="10" fill="#060D1B" fill-opacity="0.8" stroke="#172236" stroke-width="1"/>
+<text x="952" y="768" fill="#475569" font-size="9" font-weight="400" text-anchor="start" font-family="sans-serif">Ask about Maternal Mortality…</text>
+<rect x="1240" y="748" width="34" height="34" rx="10" fill="#3B82F6"/>
+<text x="1257" y="769" fill="#F1F5F9" font-size="11" font-weight="400" text-anchor="middle" font-family="sans-serif">▶</text>
+</svg>

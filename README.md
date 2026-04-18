@@ -2,6 +2,12 @@
 
 A CXO-facing health analytics dashboard with a governed AI chat copilot, built on WHO Global Health Observatory data.
 
+## Preview
+
+![Dashboard overview](docs/dashboard-preview.svg)
+
+![Chart cards close-up](docs/card-closeup.svg)
+
 ## What it does
 
 - **Static dashboard**: 6 executive charts covering reproductive and maternal health across Rwanda, Kenya, Uganda, Ethiopia, and Tanzania
@@ -13,7 +19,7 @@ A CXO-facing health analytics dashboard with a governed AI chat copilot, built o
 
 | Layer | Technology |
 |-------|-----------|
-| Dashboard UI | Streamlit + Plotly |
+| Dashboard UI | React 18 + TypeScript + Tailwind + Recharts |
 | Backend API | FastAPI + Python 3.12 |
 | Database | DuckDB (read-only, WHO GHO data) |
 | AI runtime | Claude API (`claude-sonnet-4-6`) |
@@ -60,15 +66,18 @@ make load
 
 This calls the WHO GHO API and populates `data/who_health.duckdb`. Takes ~30 seconds.
 
-### 4. Run the app
+### 4. Install frontend dependencies (once)
 ```bash
-make backend    # Terminal 1 — FastAPI backend on :8000
-make dashboard  # Terminal 2 — Streamlit dashboard on :8501
+make install-frontend
 ```
 
-> **Why `make`?** Both processes need `PYTHONPATH=.` so Python can find the `backend` and `dashboard` packages. The Makefile sets this automatically. You can also run manually: `PYTHONPATH=. uvicorn backend.main:app --reload`
+### 5. Run the app
+```bash
+make backend    # Terminal 1 — FastAPI on :8000
+make frontend   # Terminal 2 — React UI on :3000
+```
 
-Open [http://localhost:8501](http://localhost:8501)
+Open [http://localhost:3000](http://localhost:3000)
 
 ## Project structure
 
@@ -87,11 +96,11 @@ Open [http://localhost:8501](http://localhost:8501)
 │   ├── schema_loader.py        ← Builds LLM system prompt from schema registry
 │   ├── intent_classifier.py    ← Claude structured output → IntentResult
 │   └── chat_orchestrator.py    ← Agentic tool-calling loop
-├── dashboard/                  ← Streamlit UI
-│   ├── app.py                  ← Main app: 2×3 chart grid + chat panel
-│   ├── api_client.py           ← Typed httpx calls to FastAPI
-│   ├── theme.py                ← Color/size design tokens
-│   └── components/             ← chart_card.py, chat_panel.py
+├── frontend/                   ← React + TypeScript UI (Vite, Tailwind, Recharts)
+│   ├── src/App.tsx             ← Root layout: header + sidebar + chart grid + chat
+│   ├── src/components/         ← Header, Sidebar, ChartCard, ChatPanel, MiniChart
+│   └── src/lib/                ← types.ts, api.ts
+├── dashboard/                  ← Streamlit UI (legacy)
 └── data/
     ├── load_who.py             ← WHO GHO API ingestion script (run once)
     ├── schema_registry.json    ← Table/column definitions for LLM context
