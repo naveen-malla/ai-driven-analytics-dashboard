@@ -34,3 +34,6 @@ node_modules/
 .vscode/settings.json
 .idea/
 *.swp
+node_modules
+frontend/dist
+frontend/tsconfig.app.tsbuildinfo
